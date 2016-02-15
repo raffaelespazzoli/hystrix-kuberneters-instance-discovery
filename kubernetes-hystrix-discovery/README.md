@@ -10,7 +10,7 @@ In order for this library to work you need to pass the following environment var
  * selector_value: this is the balue of the selector that will be used to get the list of pods.
  * hystrix\_cluster\_name: this is the name of the cluster under which turbine will publish the aggregated data. For example if you cluster name is bob, you'll be able to retrieve the data at ??
  
- You'll need to create a web app with this library and initialize Netflix Turbine appropriately. To initialize the Kubernetes Hystrix discovery, please refer to the [netflix turbine project] (https://github.com/Netflix/Turbine/wiki/Plugging-in-your-own-InstanceDiscovery-(1.x). 
+ You'll need to create a web app with this library and initialize Netflix Turbine appropriately. To initialize the Kubernetes Hystrix discovery, please refer to the [netflix turbine project](https://github.com/Netflix/Turbine/wiki). 
  If you don't need special initialization a simpler initializer is provided. Just add the following to your web.xml:
  
 	 <listener>

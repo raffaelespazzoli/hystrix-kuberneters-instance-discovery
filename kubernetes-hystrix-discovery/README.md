@@ -24,5 +24,5 @@ If you don't need special initialization a simple initializer is provided. Just 
 
 I created a simple web app that includes turbine with this initialer and the hystrix dashboard.
 You can find the project here.
-I also created a container with the above web app deplyed on tomcat. The container can be found here.
+I also created a container with the above web app deplyed on tomcat. The container can be found [here](https://hub.docker.com/r/raffaelespazzoli/kubernetes-hystrix-dashboard/).
 Here you can find sample yaml files needed to deploy the web app in kubernetes. 	 

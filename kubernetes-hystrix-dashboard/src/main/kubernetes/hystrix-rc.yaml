@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hystrix-dashboard
+spec:
+  replicas: 1
+  selector:
+    app: hystrix-dashboard
+    version: v1
+  template:
+    metadata:
+      labels:
+        app: hystrix-dashboard
+        version: v1
+    spec:
+      containers:
+      - name: hystrix-dashboard
+        image: raffaelespazzoli/kubernetes-hystrix-dashboard:1.0.0
+        env:
+        - name: SELECTOR_KEY
+          value: tla
+        - name: SELECTOR_value
+          value: mbl             
+        ports:
+        - containerPort: 8080
+          name: hystrix-dashboard
+          protocol: TCP  

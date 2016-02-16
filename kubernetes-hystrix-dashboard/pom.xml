@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.keybank</groupId>
 	<artifactId>kubernetes-hystrix-dashboard</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<packaging>war</packaging>
 
 	<properties>
@@ -61,11 +61,20 @@
 									<basedir>/</basedir>
 									<descriptor>assembly.xml</descriptor>
 								</assembly>
+								<runCmds>
+									<run>rm -rf /usr/local/tomcat/webapps/ROOT</run>
+									<run>rm -rf /usr/local/tomcat/webapps/docs</run>
+									<run>rm -rf /usr/local/tomcat/webapps/examples</run>
+									<run>rm -rf /usr/local/tomcat/webapps/host-manager</run>
+									<run>rm -rf /usr/local/tomcat/webapps/manager</run>
+								</runCmds>
+								<optimise>true</optimise>
 							</build>
 						</image>
 					</images>
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>kubernetes-hystrix-dashboard</finalName>
 	</build>
 </project>

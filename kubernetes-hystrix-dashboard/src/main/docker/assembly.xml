@@ -6,12 +6,12 @@
 	<files>
 		<file>
 			<!-- server configuration -->
-			<source>${project.basedir}/target/kubernetes-hystrix-dashboard-${project.version}.war</source>
+			<source>${project.basedir}/target/kubernetes-hystrix-dashboard.war</source>
 			<outputDirectory>/usr/local/tomcat/webapps</outputDirectory>
 		</file>
 		<file>
 			<!-- server configuration -->
-			<source>${project.basedir}/src/main/docker/hystrix-dashboard-1.4.23.war</source>
+			<source>${project.basedir}/src/main/docker/hystrix-dashboard.war</source>
 			<outputDirectory>/usr/local/tomcat/webapps</outputDirectory>
 		</file>
 	</files>

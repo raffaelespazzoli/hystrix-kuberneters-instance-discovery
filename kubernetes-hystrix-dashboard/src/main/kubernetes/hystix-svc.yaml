@@ -7,7 +7,7 @@ spec:
   selector:
     app: hystrix-dashboard
   ports:
-  - name: hystrix-dashboard
+  - name: hdashboard
     port: 8080
     protocol: TCP
     

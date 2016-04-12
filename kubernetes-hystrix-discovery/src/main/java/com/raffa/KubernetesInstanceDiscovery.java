@@ -1,11 +1,9 @@
 package com.raffa;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,7 +42,7 @@ public class KubernetesInstanceDiscovery implements InstanceDiscovery {
 		}
 		logger.fine("client: " + client);
 		logger.fine("finding mbl pods, namespace: " + namespace + " label: " + selector_key + " value: "
-				+ selector_value + " port: " + selector_value);
+				+ selector_value);
 		PodList podlist = client.pods().inNamespace(namespace).withLabel(selector_key, selector_value).list();
 		List<Instance> sal = new ArrayList<Instance>();
 		for (Pod pod : podlist.getItems()) {

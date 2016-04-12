@@ -16,6 +16,12 @@
 			<artifactId>kubernetes-hystrix-instance-discovery</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>1.6.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -38,21 +44,49 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.jolokia</groupId>
+				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.13.8</version>
+				<version>0.14.2</version>
 				<configuration>
 					<dockerHost>http://sdc01cdocmcf01.keybank.com:2375</dockerHost>
+					<verbose>true</verbose>
 					<images>
 						<image>
-							<name>raffaelespazzoli/${project.name}:${project.version}</name>
-							<alias>${project.name}</alias>
+							<name>raffaelespazzoli/${project.artifactId}</name>
+							<registry>docker.io</registry>
 							<build>
-								<from>tomcat:8.0.30-jre8</from>
-								<maintainer>raffaele.spazzoli@gmail.com</maintainer>
 								<tags>
 									<tag>${project.version}</tag>
 								</tags>
+								<from>tomcat:8.0.30-jre8</from>
+								<maintainer>raffaele.spazzoli@gmail.com</maintainer>
+								<ports>
+									<port>8080</port>
+								</ports>
+								<assembly>
+									<mode>dir</mode>
+									<basedir>/</basedir>
+									<descriptor>assembly.xml</descriptor>
+								</assembly>
+								<runCmds>
+									<run>rm -rf /usr/local/tomcat/webapps/ROOT</run>
+									<run>rm -rf /usr/local/tomcat/webapps/docs</run>
+									<run>rm -rf /usr/local/tomcat/webapps/examples</run>
+									<run>rm -rf /usr/local/tomcat/webapps/host-manager</run>
+									<run>rm -rf /usr/local/tomcat/webapps/manager</run>
+								</runCmds>
+								<optimise>true</optimise>
+							</build>
+						</image>
+						<image>
+							<name>digitalchannel/${project.artifactId}</name>
+							<registry>registry.apps.dev.ose.keybank.com</registry>
+							<build>
+								<tags>
+									<tag>${project.version}</tag>
+								</tags>
+								<from>tomcat:8.0.30-jre8</from>
+								<maintainer>raffaele.spazzoli@gmail.com</maintainer>
 								<ports>
 									<port>8080</port>
 								</ports>

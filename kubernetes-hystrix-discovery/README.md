@@ -8,7 +8,7 @@ In order for this library to work you need to pass the following environment var
  * namespace: this is the namespace under which the service kubernetes runs.
  * selector_key: this is the key of the selector that will, be used to get the list of pods.
  * selector_value: this is the balue of the selector that will be used to get the list of pods.
- * hystrix\_cluster\_name: this is the name of the cluster under which turbine will publish the aggregated data. For example if you cluster name is bob, you'll be able to retrieve the data at ??
+ * hystrix\_cluster\_name: this is the name of the cluster under which turbine will publish the aggregated data. For example if you cluster name is bob, you'll be able to retrieve the data at `http://<host_address>:<port>/kubernetes-hystrix-dashboard/turbine.stream?cluster=<cluster_name>`
  
 If you run this library inside a kubernetes cluster the [fabric8](http://fabric8.io/) kuebernetes client should be able to initialize itself. if you're running this library outside a kubernetes cluster you will need to set additional environment variables in order to initialize the kuebernetes client as described [here](https://github.com/fabric8io/kubernetes-client).
  
